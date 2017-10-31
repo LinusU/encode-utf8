@@ -1,0 +1,13 @@
+{
+  "name": "encode-utf8",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "LinusU/encode-utf8",
+  "scripts": {
+    "test": "standard && mocha"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "standard": "^10.0.3"
+  }
+}
