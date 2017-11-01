@@ -18,20 +18,20 @@ module.exports = function encodeUtf8 (input) {
     }
 
     // US-ASCII
-    if (point < 128) {
+    if (point < 0x80) {
       result.push(point)
       continue
     }
 
     // 2-byte UTF-8
-    if (point < 2048) {
+    if (point < 0x800) {
       result.push((point >> 6) | 192)
       result.push((point & 63) | 128)
       continue
     }
 
     // 3-byte UTF-8
-    if (point < 65536) {
+    if (point < 0xD800 || (point >= 0xE000 && point < 0x10000)) {
       result.push((point >> 12) | 224)
       result.push(((point >> 6) & 63) | 128)
       result.push((point & 63) | 128)
@@ -39,7 +39,7 @@ module.exports = function encodeUtf8 (input) {
     }
 
     // 4-byte UTF-8
-    if (point < 2097152) {
+    if (point >= 0x10000 && point <= 0x10FFFF) {
       result.push((point >> 18) | 240)
       result.push(((point >> 12) & 63) | 128)
       result.push(((point >> 6) & 63) | 128)
@@ -48,7 +48,7 @@ module.exports = function encodeUtf8 (input) {
     }
 
     // Invalid character
-    throw new Error(`Code point ${point} cannot be encoded with UTF8`)
+    result.push(0xEF, 0xBF, 0xBD)
   }
 
   return Uint8Array.from(result).buffer
