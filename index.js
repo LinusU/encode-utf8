@@ -51,5 +51,5 @@ module.exports = function encodeUtf8 (input) {
     result.push(0xEF, 0xBF, 0xBD)
   }
 
-  return Uint8Array.from(result).buffer
+  return new Uint8Array(result).buffer
 }
