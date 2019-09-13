@@ -5,7 +5,7 @@ Turn a string into an ArrayBuffer by using the UTF8 encoding.
 ## Installation
 
 ```js
-npm install --save encode-uf8
+npm install --save encode-utf8
 ```
 
 ## Usage
