@@ -1,14 +1,14 @@
 'use strict'
 
 module.exports = function encodeUtf8 (input) {
-  const result = []
-  const size = input.length
+  var result = []
+  var size = input.length
 
-  for (let index = 0; index < size; index++) {
-    let point = input.charCodeAt(index)
+  for (var index = 0; index < size; index++) {
+    var point = input.charCodeAt(index)
 
     if (point >= 0xD800 && point <= 0xDBFF && size > index + 1) {
-      const second = input.charCodeAt(index + 1)
+      var second = input.charCodeAt(index + 1)
 
       if (second >= 0xDC00 && second <= 0xDFFF) {
         // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
