@@ -1,9 +1,7 @@
 /* eslint-env mocha */
 
-'use strict'
-
-const assert = require('assert')
-const encodeUtf8 = require('./')
+import assert from 'node:assert'
+import encodeUtf8 from './index.js'
 
 const testCases = [
   'ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ',
