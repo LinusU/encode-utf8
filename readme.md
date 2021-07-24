@@ -11,7 +11,7 @@ npm install --save encode-utf8
 ## Usage
 
 ```js
-const encodeUtf8 = require('encode-utf8')
+import encodeUtf8 from 'encode-utf8'
 
 console.log(encodeUtf8('Hello, World!'))
 //=> ArrayBuffer { byteLength: 13 }
@@ -22,6 +22,7 @@ console.log(encodeUtf8('🐵 🙈 🙉 🙊'))
 
 ## API
 
-### `encodeUtf8(input: string): ArrayBuffer`
+### `encodeUtf8(input)`
 
-Returns an ArrayBuffer with the string represented as UTF8 encoded data.
+- `input` (`string`, required)
+- returns `ArrayBuffer` - an ArrayBuffer with the `input` string represented as UTF8 encoded data
